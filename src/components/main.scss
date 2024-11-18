@@ -1,3 +1,19 @@
+html {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  box-sizing: border-box;
+  color: #2c3e50;
+}
+
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+// Components
 @import "./Balance/index.scss";
 @import "./BankAccount/index.scss";
 @import "./Banner/index.scss";
@@ -9,3 +25,10 @@
 @import "./UserBar/index.scss";
 @import "./UserInfoForm/index.scss";
 @import "./Nav/index.scss";
+// Pages
+@import "../pages/Home/index.scss";
+@import "../pages/NotFound/index.scss";
+@import "../pages/Dashboard/index.scss";
+@import "../pages/SignIn/index.scss";
+@import "../pages/SignUp/index.scss";
+@import "../pages/User/index.scss";

@@ -1,10 +1,11 @@
-import Nav from "./components/Nav/index"; // Importing the Nav component
+import RouterConfig from './RouterConfig';
 import './components/main.scss'; // Importing the main.scss file
+
 
 function App() {
   return (
     <>
-      <Nav />
+      <RouterConfig />
     </>
   );
 }
