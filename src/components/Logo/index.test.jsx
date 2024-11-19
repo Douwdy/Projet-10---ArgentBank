@@ -14,7 +14,7 @@ describe('Logo Component', () => {
     test('has correct href attribute', () => {
         render(<Logo />);
         const link = screen.getByRole('link', { name: /argent bank/i });
-        expect(link).toHaveAttribute('href', '/index');
+        expect(link).toHaveAttribute('href', '/');
     });
 
     test('renders the logo image with correct src', () => {
