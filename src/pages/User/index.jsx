@@ -10,13 +10,13 @@ const User = () => {
     return (
     <>
         <Nav />
-        <main class="main bg-dark">
-      <div class="header">
+        <main className="main bg-dark">
+      <div className="header">
         <h1>Welcome back<br />{username}!</h1>
-        <button class="edit-button">Edit Name</button>
+        <button className="edit-button">Edit Name</button>
       </div>
-      <h2 class="sr-only">Accounts</h2>
-        <h3 class="sr-only">Account</h3>
+      <h2 className="sr-only">Accounts</h2>
+        <h3 className="sr-only">Account</h3>
         <Account />
     </main>
         <Footer />
