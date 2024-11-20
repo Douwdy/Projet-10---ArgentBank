@@ -1,0 +1,48 @@
+.edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    &-title{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    &-form{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        width: 200px;
+            label{
+                width: 85px;
+                text-align: left;
+            }
+            input{
+                width: 200px;
+                height: 30px;
+                margin: 5px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 0 10px;
+            }
+            &_section{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            button{
+                width: 130px;
+                height: 40px;
+                margin: 10px;
+                background-color: #00bc77;
+                color: #fff;
+                border: none;
+                border-radius: 3px;
+                margin-top: 20px;
+                cursor: pointer;
+                &:hover{
+                    background-color: #00a86b;
+                }
+            }
+    }
+}

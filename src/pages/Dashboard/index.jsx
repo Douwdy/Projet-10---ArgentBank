@@ -1,6 +1,7 @@
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import Balance from "../../components/Balance";
+import UserInfoForm from "../../components/UserInfoForm";
 
 
 const Accounts = [
@@ -118,7 +119,10 @@ const Dashboard = () => {
     return (
         <>
             <Nav/>
-            <Balance Accounts={Accounts}/>
+            <UserInfoForm user={{}}/>
+            <section className="balances">
+                <Balance Accounts={Accounts}/>
+            </section>
             <Footer/>
         </>
     );

@@ -6,7 +6,6 @@ const Balance = (Accounts) => {
             <h2>{account.name}</h2>
             <h3>{account.balance}</h3>
             <h4>Available balance</h4>
-            <i class="fa-solid fa-xmark"></i>
         </section>
     ));
     };
