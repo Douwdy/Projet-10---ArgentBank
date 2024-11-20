@@ -7,7 +7,7 @@ const UserInfoForm = ({ user }) => {
                     <label htmlFor="username">
                         <span>User name:</span>
                     </label>
-                    <input type="text" value={user.username} id="username"/>
+                    <input type="text" value={user.username} id="username" onChange={(e) => user.username = e.target.value}/>
                 </div>
                 <div className="edit-form_section">
                     <label htmlFor="firstname">
