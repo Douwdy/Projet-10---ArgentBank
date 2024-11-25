@@ -2,7 +2,7 @@ import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import Balance from "../../components/Balance";
 import UserInfoForm from "../../components/UserInfoForm";
-
+import Operation from "../../components/Operation";
 
 const Accounts = [
     {
@@ -10,34 +10,64 @@ const Accounts = [
         balance: "$10,000.00",
         operation: [
             {
-                type: "deposit",
-                amount: "$500.00",
-                date: "10/01/2021"
+                id: 1,
+                date: "2021-10-01",
+                description: "Deposit",
+                amount: 500,
+                balance: 10500,
+                type: "Income",
+                category: "Savings",
+                note: "",
             },
             {
-                type: "withdrawal",
-                amount: "$200.00",
-                date: "10/15/2021"
+                id: 2,
+                date: "2021-10-15",
+                description: "Withdrawal",
+                amount: -200,
+                balance: 10300,
+                type: "Expense",
+                category: "Savings",
+                note: "",
             },
             {
-                type: "deposit",
-                amount: "$1,000.00",
-                date: "11/01/2021"
+                id: 3,
+                date: "2021-11-01",
+                description: "Deposit",
+                amount: 1000,
+                balance: 11300,
+                type: "Income",
+                category: "Savings",
+                note: "",
             },
             {
-                type: "withdrawal",
-                amount: "$500.00",
-                date: "11/15/2021"
+                id: 4,
+                date: "2021-11-15",
+                description: "Withdrawal",
+                amount: -500,
+                balance: 10800,
+                type: "Expense",
+                category: "Savings",
+                note: "",
             },
             {
-                type: "deposit",
-                amount: "$2,000.00",
-                date: "12/01/2021"
+                id: 5,
+                date: "2021-12-01",
+                description: "Deposit",
+                amount: 2000,
+                balance: 12800,
+                type: "Income",
+                category: "Savings",
+                note: "",
             },
             {
-                type: "withdrawal",
-                amount: "$1,000.00",
-                date: "12/15/2021"
+                id: 6,
+                date: "2021-12-15",
+                description: "Withdrawal",
+                amount: -1000,
+                balance: 11800,
+                type: "Expense",
+                category: "Savings",
+                note: "",
             }
         ]
     },
@@ -46,34 +76,64 @@ const Accounts = [
         balance: "$2,000.00",
         operation: [
             {
-                type: "deposit",
-                amount: "$300.00",
-                date: "10/01/2021"
+                id: 1,
+                date: "2021-10-01",
+                description: "Deposit",
+                amount: 300,
+                balance: 2300,
+                type: "Income",
+                category: "Checking",
+                note: "",
             },
             {
-                type: "withdrawal",
-                amount: "$100.00",
-                date: "10/15/2021"
+                id: 2,
+                date: "2021-10-15",
+                description: "Withdrawal",
+                amount: -100,
+                balance: 2200,
+                type: "Expense",
+                category: "Checking",
+                note: "",
             },
             {
-                type: "deposit",
-                amount: "$500.00",
-                date: "11/01/2021"
+                id: 3,
+                date: "2021-11-01",
+                description: "Deposit",
+                amount: 500,
+                balance: 2700,
+                type: "Income",
+                category: "Checking",
+                note: "",
             },
             {
-                type: "withdrawal",
-                amount: "$200.00",
-                date: "11/15/2021"
+                id: 4,
+                date: "2021-11-15",
+                description: "Withdrawal",
+                amount: -200,
+                balance: 2500,
+                type: "Expense",
+                category: "Checking",
+                note: "",
             },
             {
-                type: "deposit",
-                amount: "$1,000.00",
-                date: "12/01/2021"
+                id: 5,
+                date: "2021-12-01",
+                description: "Deposit",
+                amount: 1000,
+                balance: 3500,
+                type: "Income",
+                category: "Checking",
+                note: "",
             },
             {
-                type: "withdrawal",
-                amount: "$500.00",
-                date: "12/15/2021"
+                id: 6,
+                date: "2021-12-15",
+                description: "Withdrawal",
+                amount: -500,
+                balance: 3000,
+                type: "Expense",
+                category: "Checking",
+                note: "",
             }
         ],
     },
@@ -82,34 +142,64 @@ const Accounts = [
         balance: "$50,000.00",
         operation: [
             {
-                type: "deposit",
-                amount: "$5,000.00",
-                date: "10/01/2021"
+                id: 1,
+                date: "2021-10-01",
+                description: "Deposit",
+                amount: 5000,
+                balance: 55000,
+                type: "Income",
+                category: "Investment",
+                note: "",
             },
             {
-                type: "withdrawal",
-                amount: "$2,000.00",
-                date: "10/15/2021"
+                id: 2,
+                date: "2021-10-15",
+                description: "Withdrawal",
+                amount: -2000,
+                balance: 53000,
+                type: "Expense",
+                category: "Investment",
+                note: "",
             },
             {
-                type: "deposit",
-                amount: "$10,000.00",
-                date: "11/01/2021"
+                id: 3,
+                date: "2021-11-01",
+                description: "Deposit",
+                amount: 10000,
+                balance: 63000,
+                type: "Income",
+                category: "Investment",
+                note: "",
             },
             {
-                type: "withdrawal",
-                amount: "$5,000.00",
-                date: "11/15/2021"
+                id: 4,
+                date: "2021-11-15",
+                description: "Withdrawal",
+                amount: -5000,
+                balance: 58000,
+                type: "Expense",
+                category: "Investment",
+                note: "",
             },
             {
-                type: "deposit",
-                amount: "$20,000.00",
-                date: "12/01/2021"
+                id: 5,
+                date: "2021-12-01",
+                description: "Deposit",
+                amount: 20000,
+                balance: 78000,
+                type: "Income",
+                category: "Investment",
+                note: "",
             },
             {
-                type: "withdrawal",
-                amount: "$10,000.00",
-                date: "12/15/2021"
+                id: 6,
+                date: "2021-12-15",
+                description: "Withdrawal",
+                amount: -10000,
+                balance: 68000,
+                type: "Expense",
+                category: "Investment",
+                note: "",
             }
         ]
     }
@@ -123,6 +213,7 @@ const Dashboard = () => {
             <section className="balances">
                 <Balance Accounts={Accounts}/>
             </section>
+            <Operation AccountOperations={Accounts}/>
             <Footer/>
         </>
     );
