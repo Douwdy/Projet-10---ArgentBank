@@ -17,15 +17,15 @@ const User = () => {
     <>
         <Nav />
         <main className="main bg-dark">
-      <div className="header">
-        <h1>Welcome back<br />{username}!</h1>
-        <button className="edit-button">Edit Name</button>
-        <UserInfoForm user={user}/>
-      </div>
-      <h2 className="sr-only">Accounts</h2>
-        <h3 className="sr-only">Account</h3>
-        <Account />
-    </main>
+          <div className="header">
+            <h1>Welcome back<br />{username}!</h1>
+            <button className="edit-button">Edit Name</button>
+            <UserInfoForm user={user}/>
+          </div>
+          <h2 className="sr-only">Accounts</h2>
+          <h3 className="sr-only">Account</h3>
+          <Account />
+        </main>
         <Footer />
     </>
     );
