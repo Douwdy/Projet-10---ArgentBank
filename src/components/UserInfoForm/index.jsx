@@ -1,4 +1,4 @@
-const UserInfoForm = ({ user }) => {
+const UserInfoForm = ({ user, handleCancelClick }) => {
     return (
         <section className="edit">
             <h2 className="edit-title">Edit user info</h2>
@@ -23,7 +23,7 @@ const UserInfoForm = ({ user }) => {
                 </div>
                 <div className="edit-form_section">
                     <button type="submit">Save</button>
-                    <button type="reset">Cancel</button>
+                    <button type="reset" onClick={handleCancelClick}>Cancel</button>
                 </div>
             </form>
         </section>
