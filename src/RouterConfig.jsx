@@ -4,7 +4,8 @@ import Home from './pages/Home/index';
 import SignIn from './pages/SignIn/index';
 import SignUp from './pages/SignUp/index';
 import Dashboard from './pages/Dashboard/index';
-import NotFound from './pages/NotFound';
+import NotFound from './pages/NotFound/index';
+import AccountPage from './pages/Account/index';
 
 const RouterConfig = () => {
     return (
@@ -14,6 +15,7 @@ const RouterConfig = () => {
                 <Route path="/sign-in" element={<SignIn/>} />
                 <Route path="/sign-up" element={<SignUp/>} />
                 <Route path="/dashboard" element={<Dashboard/>} />
+                <Route path="/dashboard/account" element={<AccountPage/>} />
                 <Route path="*" element={<NotFound/>} />
             </Routes>
         </Router>

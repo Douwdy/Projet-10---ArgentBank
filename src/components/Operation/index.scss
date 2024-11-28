@@ -2,39 +2,81 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    margin: 0 20px;
     flex-direction: column;
-    background-color: green;
-    margin: 15px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -30px;
     width: 80%;
     &-item{
+        background-color: #00BC77;
+        color: white;
+        width: 80%;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         flex-direction: column;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        &_quick{
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            align-items: center;
+            flex-direction: row;
+            width: 100%;
+            &_date{
+                margin-left: 15px;
+                width: 20%;
+            }
+            &_desc{
+                margin-left: 15px;
+                width: 50%;
+                text-align: left;
+            }
+            &_amount{
+                margin-left: 15px;
+                width: 15%;
+            }
+            &_bal{
+                margin-left: 15px;
+                width: 15%;
+            }
+        }
         &_dropdown{
+            width: 100%;
             &_content{
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
+                align-items: flex-start;
                 flex-direction: column;
+                h2{
+                    font-size: 1em;
+                    text-align: left;
+                    width: 150px;
+                    margin-left: 15px;
+                }
                 &_type{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+
                 }
                 &_category{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+
                 }
                 &_note{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+
                 }
                 &_btn{
-                        
+                    margin-left: 15px;
                 }
             }
         }
