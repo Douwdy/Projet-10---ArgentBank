@@ -2,7 +2,7 @@ const accountData = [
     {
         accountType: 'Checking',
         accountNumber: 'x8349',
-        amount: 2082.79,
+        amount: 12136.82,
     },
     {
         accountType: 'Savings',
@@ -26,7 +26,7 @@ const Account = () => {
                         <p className="account-amount">${account.amount.toLocaleString()}</p>
                         <p className="account-amount-description">Available Balance</p>
                         <div className="account-content-wrapper cta">
-                            <button className="transaction-button">View transactions</button>
+                        <button className="transaction-button" onClick={() => window.location.href = `/dashboard/account`}>View transactions</button>
                         </div>
                     </div>
                 </section>

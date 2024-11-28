@@ -6,7 +6,7 @@ const accountData = [
     {
         accountType: 'Checking',
         accountNumber: 'x8349',
-        amount: 2082.79,
+        amount: 12136.82,
     }
 ];
 
