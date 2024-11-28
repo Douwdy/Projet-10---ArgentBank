@@ -13,67 +13,67 @@ const accountData = [
 const operationsData = [
     {
         id: 1,
-        date: '2021-07-17',
+        date: '17/07/2021',
         description: 'Netflix',
         amount: '-9.99',
-        balance: '2072.80',
+        balance: '12136,82',
         type: 'Online',
         category: 'Entertainment',
         note: 'Monthly subscription',
     },
     {
         id: 2,
-        date: '2021-07-16',
+        date: '16/07/2021',
         description: 'Argent Bank Deposit',
         amount: '3000.00',
-        balance: '5072.80',
+        balance: '9136,82',
         type: 'Deposit',
         category: 'Income',
         note: '',
     },
     {
         id: 3,
-        date: '2021-07-16',
+        date: '16/07/2021',
         description: 'Backbase',
         amount: '-2.99',
-        balance: '5069.81',
+        balance: '9139.81',
         type: 'Online',
         category: 'Entertainment',
         note: 'Monthly subscription',
     },
     {
         id: 4,
-        date: '2021-07-15',
+        date: '15/07/2021',
         description: 'Uber Eats',
         amount: '-25.00',
-        balance: '5044.81',
+        balance: '9164.81',
         type: 'Online',
         category: 'Food',
         note: '',
     },
     {
         id: 5,
-        date: '2021-07-15',
+        date: '15/07/2021',
         description: 'ATM Deposit',
         amount: '100.00',
-        balance: '5144.81',
+        balance: '9064.81',
         type: 'Deposit',
         category: 'Income',
         note: '',   
     },
     {
         id: 6,
-        date: '2021-07-14',
+        date: '14/07/2021',
         description: 'H&M',
         amount: '-40.00',
-        balance: '5104.81',
+        balance: '9104.81',
         type: 'Online',
         category: 'Clothing',
         note: '',
     },
     {
         id: 7,
-        date: '2021-07-14',
+        date: '14/07/2021',
         description: 'Deposit',
         amount: '2000.00',
         balance: '7104.81',
@@ -94,7 +94,7 @@ const AccountPage = () => {
                         <p className="account-amount">${accountData[0].amount.toLocaleString()}</p>
                         <p className="account-amount-description">Available Balance</p>
                         <div className="account-content-wrapper cta">
-                            <button className="transaction-button">Close transactions</button>
+                            <button className="transaction-button" onClick={() => window.location.href = '/dashboard'}>Close transactions</button>
                         </div>
                     </div>
                 </section>

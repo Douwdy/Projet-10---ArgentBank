@@ -6,7 +6,6 @@ const Operation = ({ AccountOperations }) => {
     const toggleDropdown = (id) => {
         setActiveDropdown(activeDropdown === id ? null : id);
     };
-
     return (
         <section className="operation">
             {AccountOperations.map((operation) => (
