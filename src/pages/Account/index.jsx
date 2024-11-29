@@ -1,6 +1,11 @@
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import Operation from '../../components/Operation';
+import accountsData from '../../accountData.json';
+
+console.log(accountsData);
+
+const data = "";
 
 const accountData = [
     {

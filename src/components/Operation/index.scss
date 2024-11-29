@@ -2,13 +2,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 20px;
     flex-direction: column;
     background-color: white;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -30px;
+    margin: auto;
     width: 80%;
+    padding-bottom: 20px;
+    border-radius: 0 0 15px 15px;
     &-item{
         background-color: #00BC77;
         color: white;
@@ -43,6 +42,12 @@
                 margin-left: 15px;
                 width: 15%;
             }
+            &_btn{
+                margin-right: 15px;
+                border: none;
+                background-color: #00BC77;
+                font-size: 1.5em;
+            }
         }
         &_dropdown{
             width: 100%;
@@ -76,7 +81,10 @@
 
                 }
                 &_btn{
-                    margin-left: 15px;
+                    margin-right: 15px;
+                    border: none;
+                    background-color: #00BC77;
+                    font-size: 1.5em;
                 }
             }
         }

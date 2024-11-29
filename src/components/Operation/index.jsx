@@ -15,7 +15,9 @@ const Operation = ({ AccountOperations }) => {
                         <p className="operation-item_quick_desc">{operation.description}</p>
                         <p className="operation-item_quick_amount">${operation.amount}</p>
                         <p className="operation-item_quick_bal">${operation.balance}</p>
-                        <button className="operation-item_quick_btn" onClick={() => toggleDropdown(operation.id)}>⬇️</button>
+                        <button className="operation-item_quick_btn" onClick={() => toggleDropdown(operation.id)}>
+                            {activeDropdown === operation.id ? '⬆️' : '⬇️'}
+                        </button>
                     </div>
                     {activeDropdown === operation.id && (
                         <div className="operation-item_dropdown">
