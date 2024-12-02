@@ -1,22 +1,4 @@
-const accountData = [
-    {
-        accountType: 'Checking',
-        accountNumber: 'x8349',
-        amount: 12136.82,
-    },
-    {
-        accountType: 'Savings',
-        accountNumber: 'x6712',
-        amount: 10928.42,
-    },
-    {
-        accountType: 'Credit Card',
-        accountNumber: 'x8349',
-        amount: 184.3,
-    },
-];
-
-const Account = () => {
+const Account = ({accountData}) => {
     return (
         <>
             {accountData.map((account, index) => (

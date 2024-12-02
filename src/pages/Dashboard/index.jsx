@@ -3,14 +3,12 @@ import Footer from '../../components/Footer';
 import Account from '../../components/BankAccount';
 import UserInfoForm from '../../components/UserInfoForm';
 import { useState } from 'react';
+import accounts from '../../accountData.json';
 
-const user = {
-    username: 'TonyJ',
-    firstName: 'Tony',
-    lastName: 'Jarvis'
-};
+const user = accounts.name[0];
 
-// temporary hard-coded value
+const accountsData = accounts.accounts;
+
 const username = user.firstName + ' ' + user.lastName;
 
 const Dashboard = () => {
@@ -43,7 +41,7 @@ const Dashboard = () => {
         </div>
         <h2 className="sr-only">Accounts</h2>
         <h3 className="sr-only">Account</h3>
-        <Account />
+        <Account accountData={accountsData}/>
       </main>
       <Footer />
     </>

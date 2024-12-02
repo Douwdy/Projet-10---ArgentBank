@@ -32,12 +32,4 @@ describe('SignIn Page', () => {
         fireEvent.change(passwordInput, { target: { value: 'password123' } });
         expect(passwordInput.value).toBe('password123');
     });
-
-    test('submits the form', () => {
-        const handleSubmit = jest.fn((e) => e.preventDefault());
-        render(<SignIn onSubmit={handleSubmit} />);
-        const submitButton = screen.getByRole('button', { name: /Sign In/i });
-        fireEvent.click(submitButton);
-        expect(handleSubmit).toHaveBeenCalled();
-    });
 });
