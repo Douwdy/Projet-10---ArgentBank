@@ -11,7 +11,7 @@ html {
     margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
   }
 // Components
 @import "./Balance/index.scss";
