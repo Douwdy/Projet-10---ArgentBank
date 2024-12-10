@@ -1,4 +1,3 @@
-// accountReducer.js
 import { TOGGLE_EDITING, SET_EDITING, TOGGLE_DROPDOWN, LOAD_ACCOUNT_DATA } from '../actions';
 
 const initialState = {

@@ -21,7 +21,7 @@ const Dashboard = () => {
     return <div>Loading...</div>;
   }
 
-  const user = accountData.name[0];
+  const user = accountData.name;
   const accountsData = accountData.accounts;
   const username = user.firstName + ' ' + user.lastName;
 

@@ -1,35 +1,84 @@
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import SignIn from './index'; // Import the SignIn component
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import SignIn from './index';
+import { login } from '../../actions';
 
-describe('SignIn Page', () => {
-    test('renders SignIn component', () => {
-        render(<SignIn />);
-        const signInElement = screen.getAllByText(/Sign In/i)[0];
-        expect(signInElement).toBeInTheDocument();
+jest.mock('../../actions', () => ({
+    login: jest.fn(),
+}));
+
+const mockStore = configureStore([]);
+let store;
+
+beforeEach(() => {
+    store = mockStore({
+        user: {
+            isLoading: false,
+            error: null,
+        },
+    });
+});
+
+test('renders SignIn component', () => {
+    render(
+        <Provider store={store}>
+            <SignIn />
+        </Provider>
+    );
+
+    expect(screen.getByText(/Sign In/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Email/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Password/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Remember me/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Sign In/i })).toBeInTheDocument();
+});
+
+test('handles form submission', () => {
+    render(
+        <Provider store={store}>
+            <SignIn />
+        </Provider>
+    );
+
+    fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'test@example.com' } });
+    fireEvent.change(screen.getByLabelText(/Password/i), { target: { value: 'password' } });
+    fireEvent.click(screen.getByRole('button', { name: /Sign In/i }));
+
+    expect(login).toHaveBeenCalledWith({ email: 'test@example.com', password: 'password' });
+});
+
+test('displays loading state', () => {
+    store = mockStore({
+        user: {
+            isLoading: true,
+            error: null,
+        },
     });
 
-    test('renders email input', () => {
-        render(<SignIn />);
-        const emailInput = screen.getByLabelText(/Username/i);
-        expect(emailInput).toBeInTheDocument();
+    render(
+        <Provider store={store}>
+            <SignIn />
+        </Provider>
+    );
+
+    expect(screen.getByRole('button', { name: /Signing In.../i })).toBeDisabled();
+});
+
+test('displays error message', () => {
+    store = mockStore({
+        user: {
+            isLoading: false,
+            error: { message: 'Invalid credentials' },
+        },
     });
 
-    test('renders password input', () => {
-        render(<SignIn />);
-        const passwordInput = screen.getByLabelText(/Password/i);
-        expect(passwordInput).toBeInTheDocument();
-    });
+    render(
+        <Provider store={store}>
+            <SignIn />
+        </Provider>
+    );
 
-    test('renders submit button', () => {
-        render(<SignIn />);
-        const submitButton = screen.getByRole('button', { name: /Sign In/i });
-        expect(submitButton).toBeInTheDocument();
-    });
-
-    test('allows user to type password', () => {
-        render(<SignIn />);
-        const passwordInput = screen.getByLabelText(/Password/i);
-        fireEvent.change(passwordInput, { target: { value: 'password123' } });
-        expect(passwordInput.value).toBe('password123');
-    });
+    expect(screen.getByText(/Invalid credentials/i)).toBeInTheDocument();
 });
