@@ -5,8 +5,6 @@ export const TOGGLE_EDITING = 'TOGGLE_EDITING';
 export const SET_EDITING = 'SET_EDITING';
 export const LOAD_ACCOUNT_DATA = 'LOAD_ACCOUNT_DATA';
 
-
-
 export const toggleDropdown = (id) => ({
   type: TOGGLE_DROPDOWN,
   payload: id,
@@ -72,9 +70,10 @@ export const signup = (userInfo) => async (dispatch) => {
   }
 };
 
-export const fetchProfile = (token) => async (dispatch) => {
+export const fetchProfile = () => async (dispatch) => {
   dispatch({ type: types.FETCH_PROFILE_REQUEST });
   try {
+      const token = localStorage.getItem('token');
       const response = await fetch('http://localhost:3001/api/v1/user/profile', {
           method: 'GET',
           headers: {
@@ -82,8 +81,15 @@ export const fetchProfile = (token) => async (dispatch) => {
               'Authorization': `Bearer ${token}`,
           },
       });
-      const data = await response.json();
-      dispatch({ type: types.FETCH_PROFILE_SUCCESS, payload: data });
+
+      const text = await response.text();
+      const data = text ? JSON.parse(text) : {};
+
+      if (response.ok) {
+          dispatch({ type: types.FETCH_PROFILE_SUCCESS, payload: data });
+      } else {
+          dispatch({ type: types.FETCH_PROFILE_FAILURE, error: data });
+      }
   } catch (error) {
       dispatch({ type: types.FETCH_PROFILE_FAILURE, error });
   }

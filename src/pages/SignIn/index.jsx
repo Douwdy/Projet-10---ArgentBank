@@ -9,7 +9,6 @@ const SignIn = () => {
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
     const isLoading = useSelector(state => state.user.isLoading);
-    const error = useSelector(state => state.user.error);
 
     const handleSubmit = (e) => {
         e.preventDefault();

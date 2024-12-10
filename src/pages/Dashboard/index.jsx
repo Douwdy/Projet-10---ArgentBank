@@ -4,25 +4,25 @@ import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import Account from '../../components/BankAccount';
 import UserInfoForm from '../../components/UserInfoForm';
-import { toggleEditing, setEditing, loadAccountData } from '../../actions';
+import { toggleEditing, setEditing, fetchProfile } from '../../actions';
 import store from '../../store';
 import accounts from '../../accountData.json';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const isEditing = useSelector((state) => state.isEditing);
-  const accountData = useSelector((state) => state.accountData);
 
   useEffect(() => {
-    dispatch(loadAccountData(accounts));
+    dispatch(fetchProfile());
   }, [dispatch]);
 
-  if (!accountData) {
-    return <div>Loading...</div>;
-  }
+  const user = useSelector((state) => state.user.user?.body);
+  const loading = useSelector((state) => state.loading);
 
-  const user = accountData.name;
-  const accountsData = accountData.accounts;
+  if (loading || !user || !accounts) {
+    return <div className='loading'><div className='loading_spinner'></div></div>;
+  }
+  const accountsData = accounts.accounts;
   const username = user.firstName + ' ' + user.lastName;
 
   const handleEditClick = () => {
