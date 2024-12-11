@@ -10,7 +10,7 @@ import accounts from '../../accountData.json';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const isEditing = useSelector((state) => state.isEditing);
+  const isEditing = useSelector((state) => state.account.isEditing);
 
   useEffect(() => {
     dispatch(fetchProfile());

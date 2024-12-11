@@ -1,4 +1,4 @@
-import { TOGGLE_EDITING, SET_EDITING, TOGGLE_DROPDOWN, LOAD_ACCOUNT_DATA } from '../actions';
+import * as types from '../actionTypes';
 
 const initialState = {
   activeDropdown: null,
@@ -8,22 +8,22 @@ const initialState = {
 
 const accountReducer = (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE_DROPDOWN:
+    case types.TOGGLE_DROPDOWN:
       return {
         ...state,
         activeDropdown: state.activeDropdown === action.payload ? null : action.payload,
       };
-    case TOGGLE_EDITING:
+    case types.TOGGLE_EDITING:
       return {
         ...state,
         isEditing: !state.isEditing,
       };
-    case SET_EDITING:
+    case types.SET_EDITING:
       return {
         ...state,
         isEditing: action.payload,
       };
-    case LOAD_ACCOUNT_DATA:
+    case types.LOAD_ACCOUNT_DATA:
       return {
         ...state,
         accountData: action.payload,

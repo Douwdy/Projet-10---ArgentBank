@@ -1,27 +1,22 @@
 import * as types from './actionTypes';
 
-export const TOGGLE_DROPDOWN = 'TOGGLE_DROPDOWN';
-export const TOGGLE_EDITING = 'TOGGLE_EDITING';
-export const SET_EDITING = 'SET_EDITING';
-export const LOAD_ACCOUNT_DATA = 'LOAD_ACCOUNT_DATA';
-
 export const toggleDropdown = (id) => ({
-  type: TOGGLE_DROPDOWN,
-  payload: id,
+    type: types.TOGGLE_DROPDOWN,
+    payload: id,
 });
 
 export const toggleEditing = () => ({
-  type: TOGGLE_EDITING,
+    type: types.TOGGLE_EDITING,
 });
 
 export const setEditing = (isEditing) => ({
-  type: SET_EDITING,
-  payload: isEditing,
+    type: types.SET_EDITING,
+    payload: isEditing,
 });
 
 export const loadAccountData = (data) => ({
-  type: LOAD_ACCOUNT_DATA,
-  payload: data,
+    type: types.LOAD_ACCOUNT_DATA,
+    payload: data,
 });
 
 export const login = (credentials) => async (dispatch) => {

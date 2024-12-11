@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 
 const Operation = ({ AccountOperations }) => {
   const dispatch = useDispatch();
-  const activeDropdown = useSelector((state) => state.activeDropdown);
+  const activeDropdown = useSelector((state) => state.account.activeDropdown);
 
   return (
     <section className="operation">
