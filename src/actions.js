@@ -90,20 +90,25 @@ export const fetchProfile = () => async (dispatch) => {
   }
 };
 
-export const updateProfile = (profileInfo, token) => async (dispatch) => {
-  dispatch({ type: types.UPDATE_PROFILE_REQUEST });
-  try {
-      const response = await fetch('http://localhost:3001/api/v1/user/profile', {
-          method: 'PUT',
-          headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`,
-          },
-          body: JSON.stringify(profileInfo),
-      });
-      const data = await response.json();
-      dispatch({ type: types.UPDATE_PROFILE_SUCCESS, payload: data });
-  } catch (error) {
-      dispatch({ type: types.UPDATE_PROFILE_FAILURE, error });
-  }
-};
+export const updateProfile = (profileInfo, token, onSuccess) => async (dispatch) => {
+    dispatch({ type: types.UPDATE_PROFILE_REQUEST });
+    try {
+        const response = await fetch('http://localhost:3001/api/v1/user/profile', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify(profileInfo),
+        });
+        const data = await response.json();
+        if (response.ok) {
+            dispatch({ type: types.UPDATE_PROFILE_SUCCESS, payload: data });
+            if (onSuccess) onSuccess();
+        } else {
+            dispatch({ type: types.UPDATE_PROFILE_FAILURE, error: data });
+        }
+    } catch (error) {
+        dispatch({ type: types.UPDATE_PROFILE_FAILURE, error });
+    }
+  };
