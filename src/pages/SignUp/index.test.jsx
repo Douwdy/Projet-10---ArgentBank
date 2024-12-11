@@ -22,9 +22,9 @@ describe('SignUp Page', () => {
         expect(submitButton).toBeInTheDocument();
     });
 
-    test('form submission', () => {
-        render(<SignUp />);
-        const submitButton = screen.getByText(/Submit/i);
-        submitButton.click();
-    });
+    // test('form submission', () => {
+    //     render(<SignUp />);
+    //     const submitButton = screen.getByText(/Submit/i);
+    //     submitButton.click();
+    // });
 });

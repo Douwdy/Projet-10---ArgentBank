@@ -91,12 +91,112 @@
                     "type": "Credit",
                     "category": "Income",
                     "note": "Monthly interest"
+                },
+                {
+                    "id": 2,
+                    "date": "16/07/2021",
+                    "description": "Transfer from Checking",
+                    "amount": "500.00",
+                    "balance": "10400.00",
+                    "type": "Credit",
+                    "category": "Transfer",
+                    "note": ""
+                },
+                {
+                    "id": 3,
+                    "date": "15/07/2021",
+                    "description": "Interest",
+                    "amount": "28.00",
+                    "balance": "9900.00",
+                    "type": "Credit",
+                    "category": "Income",
+                    "note": "Monthly interest"
+                },
+                {
+                    "id": 4,
+                    "date": "14/07/2021",
+                    "description": "Transfer from Checking",
+                    "amount": "1000.00",
+                    "balance": "9872.00",
+                    "type": "Credit",
+                    "category": "Transfer",
+                    "note": ""
+                },
+                {
+                    "id": 5,
+                    "date": "13/07/2021",
+                    "description": "Interest",
+                    "amount": "27.00",
+                    "balance": "8872.00",
+                    "type": "Credit",
+                    "category": "Income",
+                    "note": "Monthly interest"
+                },
+                {
+                    "id": 6,
+                    "date": "12/07/2021",
+                    "description": "Transfer from Checking",
+                    "amount": "500.00",
+                    "balance": "8845.00",
+                    "type": "Credit",
+                    "category": "Transfer",
+                    "note": ""
+                },
+                {
+                    "id": 7,
+                    "date": "11/07/2021",
+                    "description": "Interest",
+                    "amount": "27.00",
+                    "balance": "8345.00",
+                    "type": "Credit",
+                    "category": "Income",
+                    "note": "Monthly interest"
+                },
+                {
+                    "id": 8,
+                    "date": "10/07/2021",
+                    "description": "Transfer from Checking",
+                    "amount": "1000.00",
+                    "balance": "8318.00",
+                    "type": "Credit",
+                    "category": "Transfer",
+                    "note": ""
+                },
+                {
+                    "id": 9,
+                    "date": "09/07/2021",
+                    "description": "Interest",
+                    "amount": "27.00",
+                    "balance": "7318.00",
+                    "type": "Credit",
+                    "category": "Income",
+                    "note": "Monthly interest"
+                },
+                {
+                    "id": 10,
+                    "date": "08/07/2021",
+                    "description": "Transfer from Checking",
+                    "amount": "500.00",
+                    "balance": "7291.00",
+                    "type": "Credit",
+                    "category": "Transfer",
+                    "note": ""
+                },
+                {
+                    "id": 11,
+                    "date": "07/07/2021",
+                    "description": "Interest",
+                    "amount": "27.00",
+                    "balance": "6791.00",
+                    "type": "Credit",
+                    "category": "Income",
+                    "note": "Monthly interest"
                 }
             ]
         },
         {
             "accountType": "Credit Card",
-            "accountNumber": "x8349",
+            "accountNumber": "x1534",
             "amount": 184.3,
             "operations": [
                 {
@@ -108,6 +208,46 @@
                     "type": "Debit",
                     "category": "Payment",
                     "note": "Credit card payment"
+                },
+                {
+                    "id": 2,
+                    "date": "16/07/2021",
+                    "description": "Amazon Purchase",
+                    "amount": "-30.00",
+                    "balance": "234.3",
+                    "type": "Debit",
+                    "category": "Shopping",
+                    "note": "Bought a book"
+                },
+                {
+                    "id": 3,
+                    "date": "15/07/2021",
+                    "description": "Starbucks",
+                    "amount": "-5.00",
+                    "balance": "264.3",
+                    "type": "Debit",
+                    "category": "Food",
+                    "note": "Coffee"
+                },
+                {
+                    "id": 4,
+                    "date": "14/07/2021",
+                    "description": "Gym Membership",
+                    "amount": "-20.00",
+                    "balance": "269.3",
+                    "type": "Debit",
+                    "category": "Health",
+                    "note": "Monthly fee"
+                },
+                {
+                    "id": 5,
+                    "date": "13/07/2021",
+                    "description": "Grocery Store",
+                    "amount": "-60.00",
+                    "balance": "289.3",
+                    "type": "Debit",
+                    "category": "Food",
+                    "note": "Weekly groceries"
                 }
             ]
         }

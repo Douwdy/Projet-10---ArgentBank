@@ -8,7 +8,7 @@ const Account = ({accountData}) => {
                         <p className="account-amount">${account.amount.toLocaleString()}</p>
                         <p className="account-amount-description">Available Balance</p>
                         <div className="account-content-wrapper cta">
-                        <button className="transaction-button" onClick={() => window.location.href = `/dashboard/account`}>View transactions</button>
+                        <button className="transaction-button" onClick={() => window.location.href = `/dashboard/account/${account.accountNumber}`}>View transactions</button>
                         </div>
                     </div>
                 </section>
