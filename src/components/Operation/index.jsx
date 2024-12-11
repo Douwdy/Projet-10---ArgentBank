@@ -1,9 +1,11 @@
 // index.jsx
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, Provider } from 'react-redux';
 import { toggleDropdown } from '../../actions';
 import store from '../../store';
-import { Provider } from 'react-redux';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const Operation = ({ AccountOperations }) => {
   const dispatch = useDispatch();
@@ -22,7 +24,7 @@ const Operation = ({ AccountOperations }) => {
               className="operation-item_quick_btn"
               onClick={() => dispatch(toggleDropdown(operation.id))}
             >
-              {activeDropdown === operation.id ? '⬆️' : '⬇️'}
+              {activeDropdown === operation.id ? <FontAwesomeIcon icon={faChevronUp} style={{ color: 'white' }}/> : <FontAwesomeIcon icon={faChevronDown} style={{ color: 'white' }}/>}
             </button>
           </div>
           {activeDropdown === operation.id && (
@@ -35,12 +37,12 @@ const Operation = ({ AccountOperations }) => {
                 <div className="operation-item_dropdown_content_category">
                   <h2>Category</h2>
                   <p>{operation.category}</p>
-                  <button className="operation-item_dropdown_content_btn">✏️</button>
+                  <button className="operation-item_dropdown_content_btn"><FontAwesomeIcon icon={faPen} style={{ color: 'white', fontSize:'0.8em' }}/></button>
                 </div>
                 <div className="operation-item_dropdown_content_note">
                     <h2>Note</h2>
                     <p>{operation.note}</p>
-                    <button className="operation-item_dropdown_content_btn">✏️</button>
+                    <button className="operation-item_dropdown_content_btn"><FontAwesomeIcon icon={faPen} style={{ color: 'white', fontSize:'0.8em' }}/></button>
                 </div>
               </div>
             </div>
