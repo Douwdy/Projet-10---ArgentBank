@@ -1,13 +1,30 @@
-const UserInfoForm = ({ user, handleCancelClick }) => {
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { updateProfile } from '../../actions';
+
+const UserInfoForm = ({ user }) => {
+    const dispatch = useDispatch();
+    const [username, setUsername] = useState(user.userName);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const token = localStorage.getItem('token');
+        dispatch(updateProfile({ ...user, userName: username }, token));
+    };
+
+    const handleCancelClick = () => {
+        setUsername(user.userName);
+    };
+
     return (
         <section className="edit">
             <h2 className="edit-title">Edit user info</h2>
-            <form className="edit-form">
+            <form className="edit-form" onSubmit={handleSubmit}>
                 <div className="edit-form_section">
                     <label htmlFor="username">
                         <span>User name:</span>
                     </label>
-                    <input type="text" value={user.userName} id="username" onChange={(e) => user.username = e.target.value}/>
+                    <input type="text" value={username} id="username" onChange={(e) => setUsername(e.target.value)}/>
                 </div>
                 <div className="edit-form_section">
                     <label htmlFor="firstname">
