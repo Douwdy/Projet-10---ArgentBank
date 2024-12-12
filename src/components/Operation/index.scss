@@ -66,19 +66,16 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-
                 }
                 &_category{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-
                 }
                 &_note{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-
                 }
                 &_btn{
                     margin-right: 15px;
@@ -89,4 +86,51 @@
             }
         }
     }
+}
+
+@media screen and (max-width: 768px){
+    .operation{
+        &-item{
+            &_quick{
+                width: 100%;
+                &_date{
+                    display: none;
+                }
+                &_desc{
+                    font-size: 1em;
+                }
+                &_amount{
+                    font-size: 1em;
+                    width: 30%;
+                }
+                &_bal{
+                    display: none;
+                }
+                &_btn{
+                    font-size: 1em;
+                }
+            }
+            &_dropdown{
+                width: 100%;
+                &_content{
+                    h2{
+                        font-size: 1em;
+                    }
+                    &_type{
+                        font-size: 1em;
+                    }
+                    &_category{
+                        font-size: 1em;
+                    }
+                    &_note{
+                        font-size: 1em;
+                    }
+                    &_btn{
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
+    }
+    
 }

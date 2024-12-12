@@ -8,6 +8,7 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
+        // Request
         case types.LOGIN_REQUEST:
         case types.SIGNUP_REQUEST:
         case types.FETCH_PROFILE_REQUEST:
@@ -17,6 +18,7 @@ const userReducer = (state = initialState, action) => {
                 isLoading: true,
                 error: null,
             };
+        // Success
         case types.LOGIN_SUCCESS:
         case types.SIGNUP_SUCCESS:
         case types.FETCH_PROFILE_SUCCESS:
@@ -26,6 +28,7 @@ const userReducer = (state = initialState, action) => {
                 isLoading: false,
                 user: action.payload,
             };
+        // Failure
         case types.LOGIN_FAILURE:
         case types.SIGNUP_FAILURE:
         case types.FETCH_PROFILE_FAILURE:
