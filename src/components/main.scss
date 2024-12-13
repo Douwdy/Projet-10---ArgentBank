@@ -14,12 +14,9 @@ html {
     height: 100vh;
   }
 // Components
-@import "./Balance/index.scss";
 @import "./BankAccount/index.scss";
 @import "./Banner/index.scss";
 @import "./Footer/index.scss";
-@import "./Header/index.scss";
-@import "./Login/index.scss";
 @import "./Logo/index.scss";
 @import "./Operation/index.scss";
 @import "./UserInfoForm/index.scss";
@@ -28,6 +25,4 @@ html {
 @import "../pages/Home/index.scss";
 @import "../pages/NotFound/index.scss";
 @import "../pages/SignIn/index.scss";
-@import "../pages/SignUp/index.scss";
 @import "../pages/Dashboard/index.scss";
-@import "../pages/Account/index.scss";

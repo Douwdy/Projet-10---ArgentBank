@@ -5,7 +5,7 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 const Nav = () => {
   const handleSignOut = () => {
     localStorage.removeItem("token");
-    window.location.href = "/sign-in"; // Redirect to the sign-in page
+    window.location.href = "/sign-in";
   };
 
   return (
