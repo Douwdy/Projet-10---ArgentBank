@@ -20,37 +20,55 @@ export const loadAccountData = (data) => ({
     payload: data,
 });
 
+export const apiRequest = (requestType, payload) => ({
+    type: types.API_REQUEST,
+    meta: { requestType },
+    payload,
+});
+
+export const apiSuccess = (requestType, response) => ({
+    type: types.API_SUCCESS,
+    meta: { requestType },
+    payload: response,
+});
+
+export const apiFailure = (requestType, error) => ({
+    type: types.API_FAILURE,
+    meta: { requestType },
+    payload: error,
+});
+
 export const login = (credentials) => async (dispatch) => {
-    dispatch({ type: types.LOGIN_REQUEST });
+    dispatch(apiRequest('LOGIN', credentials));
     try {
         const response = await fetch(`${config.API_URL}/user/login`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            email: credentials.email,
-            password: credentials.password,
-        }),
-    });
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: credentials.email,
+                password: credentials.password,
+            }),
+        });
 
-    const text = await response.text();
-    const data = text ? JSON.parse(text) : {};
+        const text = await response.text();
+        const data = text ? JSON.parse(text) : {};
 
-    if (response.ok) {
-        dispatch({ type: types.LOGIN_SUCCESS, payload: data });
-        localStorage.setItem('token', data.body.token);
-        window.location.href = '/dashboard';
-    } else {
-        dispatch({ type: types.LOGIN_FAILURE, error: data });
-    }
+        if (response.ok) {
+            dispatch(apiSuccess('LOGIN', data));
+            localStorage.setItem('token', data.body.token);
+            window.location.href = '/dashboard';
+        } else {
+            dispatch(apiFailure('LOGIN', data));
+        }
     } catch (error) {
-        dispatch({ type: types.LOGIN_FAILURE, error });
+        dispatch(apiFailure('LOGIN', error));
     }
 };
 
 export const signup = (userInfo) => async (dispatch) => {
-    dispatch({ type: types.SIGNUP_REQUEST });
+    dispatch(apiRequest('SIGNUP', userInfo));
     try {
         const response = await fetch(`${config.API_URL}/user/signup`, {
             method: 'POST',
@@ -59,15 +77,19 @@ export const signup = (userInfo) => async (dispatch) => {
             },
             body: JSON.stringify(userInfo),
         });
-            const data = await response.json();
-            dispatch({ type: types.SIGNUP_SUCCESS, payload: data });
-        } catch (error) {
-            dispatch({ type: types.SIGNUP_FAILURE, error });
+        const data = await response.json();
+        if (response.ok) {
+            dispatch(apiSuccess('SIGNUP', data));
+        } else {
+            dispatch(apiFailure('SIGNUP', data));
         }
+    } catch (error) {
+        dispatch(apiFailure('SIGNUP', error));
+    }
 };
 
 export const fetchProfile = () => async (dispatch) => {
-    dispatch({ type: types.FETCH_PROFILE_REQUEST });
+    dispatch(apiRequest('FETCH_PROFILE'));
     try {
         const token = localStorage.getItem('token');
         const response = await fetch(`${config.API_URL}/user/profile`, {
@@ -76,23 +98,23 @@ export const fetchProfile = () => async (dispatch) => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
             },
-    });
+        });
 
-    const text = await response.text();
-    const data = text ? JSON.parse(text) : {};
+        const text = await response.text();
+        const data = text ? JSON.parse(text) : {};
 
-    if (response.ok) {
-        dispatch({ type: types.FETCH_PROFILE_SUCCESS, payload: data });
-    } else {
-        dispatch({ type: types.FETCH_PROFILE_FAILURE, error: data });
-    }
+        if (response.ok) {
+            dispatch(apiSuccess('FETCH_PROFILE', data));
+        } else {
+            dispatch(apiFailure('FETCH_PROFILE', data));
+        }
     } catch (error) {
-        dispatch({ type: types.FETCH_PROFILE_FAILURE, error });
+        dispatch(apiFailure('FETCH_PROFILE', error));
     }
 };
 
 export const updateProfile = (profileInfo, token, onSuccess) => async (dispatch) => {
-    dispatch({ type: types.UPDATE_PROFILE_REQUEST });
+    dispatch(apiRequest('UPDATE_PROFILE', profileInfo));
     try {
         const response = await fetch(`${config.API_URL}/user/profile`, {
             method: 'PUT',
@@ -104,12 +126,12 @@ export const updateProfile = (profileInfo, token, onSuccess) => async (dispatch)
         });
         const data = await response.json();
         if (response.ok) {
-            dispatch({ type: types.UPDATE_PROFILE_SUCCESS, payload: data });
+            dispatch(apiSuccess('UPDATE_PROFILE', data));
             if (onSuccess) onSuccess();
         } else {
-            dispatch({ type: types.UPDATE_PROFILE_FAILURE, error: data });
+            dispatch(apiFailure('UPDATE_PROFILE', data));
         }
     } catch (error) {
-        dispatch({ type: types.UPDATE_PROFILE_FAILURE, error });
+        dispatch(apiFailure('UPDATE_PROFILE', error));
     }
 };

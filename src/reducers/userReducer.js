@@ -8,36 +8,48 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
-        // Request
-        case types.LOGIN_REQUEST:
-        case types.SIGNUP_REQUEST:
-        case types.FETCH_PROFILE_REQUEST:
-        case types.UPDATE_PROFILE_REQUEST:
-            return {
-                ...state,
-                isLoading: true,
-                error: null,
-            };
-        // Success
-        case types.LOGIN_SUCCESS:
-        case types.SIGNUP_SUCCESS:
-        case types.FETCH_PROFILE_SUCCESS:
-        case types.UPDATE_PROFILE_SUCCESS:
-            return {
-                ...state,
-                isLoading: false,
-                user: action.payload,
-            };
-        // Failure
-        case types.LOGIN_FAILURE:
-        case types.SIGNUP_FAILURE:
-        case types.FETCH_PROFILE_FAILURE:
-        case types.UPDATE_PROFILE_FAILURE:
-            return {
-                ...state,
-                isLoading: false,
-                error: action.error,
-            };
+        case types.API_REQUEST:
+            switch (action.meta.requestType) {
+                case 'LOGIN':
+                case 'SIGNUP':
+                case 'FETCH_PROFILE':
+                case 'UPDATE_PROFILE':
+                    return {
+                        ...state,
+                        isLoading: true,
+                        error: null,
+                    };
+                default:
+                    return state;
+            }
+        case types.API_SUCCESS:
+            switch (action.meta.requestType) {
+                case 'LOGIN':
+                case 'SIGNUP':
+                case 'FETCH_PROFILE':
+                case 'UPDATE_PROFILE':
+                    return {
+                        ...state,
+                        isLoading: false,
+                        user: action.payload,
+                    };
+                default:
+                    return state;
+            }
+        case types.API_FAILURE:
+            switch (action.meta.requestType) {
+                case 'LOGIN':
+                case 'SIGNUP':
+                case 'FETCH_PROFILE':
+                case 'UPDATE_PROFILE':
+                    return {
+                        ...state,
+                        isLoading: false,
+                        error: action.payload,
+                    };
+                default:
+                    return state;
+            }
         default:
             return state;
     }
