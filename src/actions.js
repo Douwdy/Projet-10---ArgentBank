@@ -32,11 +32,21 @@ export const apiSuccess = (requestType, response) => ({
     payload: response,
 });
 
-export const apiFailure = (requestType, error) => ({
-    type: types.API_FAILURE,
-    meta: { requestType },
-    payload: error,
-});
+export const apiFailure = (requestType, error) => (dispatch) => {
+    if (error.status === 401) {
+        localStorage.removeItem('token');
+        window.location.href = '/sign-in';
+    }
+
+    const errorMessage = error.message || 'An unknown error occurred';
+    const errorStatus = error.status || 500;
+
+    dispatch({
+        type: types.API_FAILURE,
+        meta: { requestType },
+        payload: { message: errorMessage, status: errorStatus },
+    });
+};
 
 export const login = (credentials) => async (dispatch) => {
     dispatch(apiRequest('LOGIN', credentials));
