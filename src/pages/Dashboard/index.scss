@@ -19,26 +19,3 @@
 .main{
   padding: 0px 0px 50px 0px;
 }
-
-.loading{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  &_spinner{
-    width: 100px;
-    height: 100px;
-    background-color: #00bc77;
-    border-radius: 25%;
-    animation: spin 0.5s linear infinite;
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}

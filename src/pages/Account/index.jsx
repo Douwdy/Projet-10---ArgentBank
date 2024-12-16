@@ -1,16 +1,36 @@
+import React, { useState, useEffect } from 'react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import Operation from '../../components/Operation';
+import LoadingSpinner from '../../components/Spinner';
 import accounts from '../../accountData.json';
 import { useParams } from 'react-router-dom';
 
 const AccountPage = () => {
     const { accountNumber } = useParams();
-    const account = accounts.accounts.find(acc => acc.accountNumber === accountNumber);
+    const [loading, setLoading] = useState(true);
+    const [account, setAccount] = useState(null);
+
+    useEffect(() => {
+        if (!localStorage.getItem('token')) {
+            window.location.href = '/sign-in';
+        } else {
+            const foundAccount = accounts.accounts.find(acc => acc.accountNumber === accountNumber);
+            setAccount(foundAccount);
+            setLoading(false);
+        }
+    }, [accountNumber]);
+
+    if (loading) {
+        return <LoadingSpinner />;
+    }
+
     if (!account) {
         return <div>Account not found</div>;
     }
+
     const operationsData = account.operations;
+
     return (
         <>
             <Nav />
@@ -26,7 +46,7 @@ const AccountPage = () => {
                     </div>
                 </section>
                 <section className="account-operations">
-                    <Operation AccountOperations={operationsData}/>
+                    <Operation AccountOperations={operationsData} />
                 </section>
             </main>
             <Footer />

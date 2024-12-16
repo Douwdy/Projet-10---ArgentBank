@@ -4,6 +4,7 @@ import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import Account from '../../components/BankAccount';
 import UserInfoForm from '../../components/UserInfoForm';
+import LoadingSpinner from '../../components/Spinner';
 import { toggleEditing, setEditing, fetchProfile } from '../../actions';
 import store from '../../store';
 import accounts from '../../accountData.json';
@@ -20,7 +21,7 @@ const Dashboard = () => {
   const loading = useSelector((state) => state.loading);
 
   if (loading || !user || !accounts) {
-    return <div className='loading'><div className='loading_spinner'></div></div>;
+    return <LoadingSpinner />;
   }
   const accountsData = accounts.accounts;
   const username = user.firstName + ' ' + user.lastName;
