@@ -1,4 +1,4 @@
-import LogoPng from "../../assets/argentBankLogo.png";
+import LogoPng from "../../assets/argentBankLogo.webp";
 
 const Logo = () => {
     return (

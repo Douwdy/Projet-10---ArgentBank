@@ -3,9 +3,9 @@ import Nav from "../../components/Nav/index"; // Importing the Nav component
 import Banner from "../../components/Banner/index"; // Importing the Banner component
 import Footer from "../../components/Footer/index"; // Importing the Footer component
 // Icons
-import Money from "../../assets/icon-money.png"; // Importing the money icon
-import Chat from "../../assets/icon-chat.png"; // Importing the chat icon
-import Security from "../../assets/icon-security.png"; // Importing the security icon
+import Money from "../../assets/icon-money.webp"; // Importing the money icon
+import Chat from "../../assets/icon-chat.webp"; // Importing the chat icon
+import Security from "../../assets/icon-security.webp"; // Importing the security icon
 
 const Home = () => {
     return (

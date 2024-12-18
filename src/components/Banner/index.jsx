@@ -1,4 +1,4 @@
-import BannerImg from '../../assets/bank-tree.jpeg';
+import BannerImg from '../../assets/bank-tree.webp';
 
 const Banner = () => {
     return (
