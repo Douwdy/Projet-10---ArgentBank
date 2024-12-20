@@ -20,7 +20,7 @@ describe('Logo Component', () => {
     test('renders the logo image with correct src', () => {
         render(<Logo />);
         const logoImage = screen.getByAltText('ArgentBankLogo');
-        expect(logoImage).toHaveAttribute('src', expect.stringContaining('argentBankLogo.png'));
+        expect(logoImage).toHaveAttribute('src', expect.stringContaining('argentBankLogo.webp'));
     });
 
     test('renders the hidden h1 element', () => {
